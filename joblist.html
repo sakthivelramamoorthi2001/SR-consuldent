@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-chubby/css/uicons-regular-chubby.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-straight/css/uicons-solid-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-bold-straight/css/uicons-bold-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-straight/css/uicons-solid-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-chubby/css/uicons-solid-chubby.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-thin-chubby/css/uicons-thin-chubby.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-straight/css/uicons-regular-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-thin-rounded/css/uicons-thin-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-thin-straight/css/uicons-thin-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+<title>SR Consultancy</title>
+    <link rel="icon" href="/img/SR_Fav.svg"></head>
+
+<script>
+function clickCheckBox(e) {
+    const { name, checked } = e.target;
+
+    if (checked) {
+        if (!selectedServices.includes(name)) {
+            selectedServices.push(name);
+        }
+    } else {
+        selectedServices = selectedServices.filter(item => item !== name);
+    }
+
+    console.log("Selected services:", selectedServices);
+}
+    function sendEmail(event) {
+        event.preventDefault();
+        console.log("test");
+        const form = document.getElementById('contact-form');
+        const name = form.name.value;
+        const email = form.email.value;
+        const mobile = form.mobile.value;
+        const referral = form.referral.value;
+        const projectDetails = form.projectDetails.value;
+
+        console.log(name, email, mobile, referral, projectDetails,selectedServices.join(','),'test');
+        
+        emailjs.send("service_04coyhr","template_yq4ta9k", {
+            to_name: "Recipient Name", 
+            to_email:'ffarajsabar',
+            name,
+            email,
+            mobile,
+            referral,
+            projectDetails,
+            selectedServices:selectedServices.join(',')
+        })
+        .then(response => {
+            alert("Email sent successfully!");
+            form.reset();
+        })
+        .catch(error => {
+            console.error("Failed to send email:", error);
+            alert("Failed to send the message. Please try again.");
+        })};
+</script>
+<body>
+    <div class="loader">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+        <div class="bar4"></div>
+        <div class="bar5"></div>
+        <div class="bar6"></div>
+    </div>
+
+<header>
+    <!-- MENU BAR -->  
+<div class="container-fluid menu-section">
+    <div class="container">
+        <div class="row d-flex align-items-center">
+            <div class="col-md-2 d-flex align-items-center">
+                <div class="logo">
+                    <img src="/img/sr_logo.svg" alt="Logo Image">
+                </div>
+                <div class="hamburger d-md-none ms-auto">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </div>
+            <div class="col-md-8 d-flex align-items-center justify-content-center">
+                <nav id="navbar-example2" class="navbar w-100">
+                    <ul class="nav-links d-flex justify-content-center w-100 mb-0">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#scrollspyHeading1">Latest Jobs</a>
+                        </li>
+                        <li><a href="#">Contact Us</a></li>
+                                        <div class="login d-lg-none">
+                    <a href="#" class="btn btn-primary log">For Enquiry</a>
+                </div>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-md-2 d-none d-md-none d-lg-block">
+                <div class="login">
+                    <a href="#" class="btn btn-primary log">For Enquiry</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</header>
+<main>
+<div class="joblist d-flex justify-content-center align-items-center">
+    <div class="job-table">
+        <h2>Job Details</h2>
+        <ul class="d-flex justify-content-center align-items-center">
+            <div class="job-list d-flex justify-content-center">
+                <li>
+                    <a href="index.html" style="transition: color 0.2s;" onmouseover="this.style.color='#fd1616'" onmouseout="this.style.color=''" >Home</a>
+                </li>
+                <li><span class="breadcrumb-separator">&gt;</span></li>
+                <li>Job Details</li>
+            </div>
+        </ul>
+
+    </div>
+</div>
+<div class="container-fluid work-section pb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="full">
+                    <div>
+                        <h2>Fitter And Welder</h2>
+                        <div class="d-flex">
+                        <p>
+                            <i class="fi fi-rc-map-marker-plus"></i>
+                            <span>Singapore</span>
+                        </p>
+                        <p>
+                            <i class="fi fi-rr-briefcase-blank"></i>
+                            <span>Work Experience : 2 Years</span>
+                        </div>
+                        <div>
+                            <h6><i class="fi fi-ss-paper-plane"></i> Apply Before :JUL 2025</h6>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="description">
+                    <h3>Description</h3>
+                    <p class="first-one">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,but also the leap into essentially unchanged.</p>
+                    <p class="second-one">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="requirement">
+                    <h3>Requirements</h3>
+                    <p class="first-one">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,but also the leap into essentially unchanged.</p>
+                    <p class="second-one">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="apply">
+                    <h4>Job Details</h4>
+                    <p><i class="fi fi-rr-check"></i> Company Name : levlox</p>
+                    <p><i class="fi fi-rr-check"></i> Location : Singapore</p>
+                    <p><i class="fi fi-rr-check"></i> Job Type : Full Time</p>
+                    <p><i class="fi fi-rr-check"></i> E-mail : Collab@gmail.com</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="Apply">
+                    <p><i class="fi fi-rr-check"></i> Experience : 2 Years</p>
+                    <p><i class="fi fi-rr-check"></i> Language : English</p>
+                    <p><i class="fi fi-rr-check"></i> Salary : 100 KD</p>
+                    <p><i class="fi fi-rr-check"></i> Website : WWW.Company.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+                <div class="apply-btn">
+                    <a href="#" class="btn btn-primary Apply-btn">Apply Now</a>
+                </div>
+        </div>
+    </div>
+</div>
+</div>
+
+ <div class="container-fluid section-four pt-5" style="background-color: #3a3a3a;">
+        <div class="container">
+            <h4 id="scrollspyHeading1"></h4>
+            <div class="row one text-center">
+                <div class="col-md-12">
+                    <h2  style="color: #fff;">More Jobs</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-12"> 
+                    <div class="full-card">
+                    <div class="row">
+                        <div class="col-md-3"> 
+                        </div>
+                        <div class="col-md-12">
+                            <div class="job-info text-start">
+                                <h3><a href="#">Medical Billing</a></h3>
+                                <ul style="padding-left: 1.2em; margin-bottom: 0;">
+                                    <li>Urgent Requirement for Holmech Engineering PTE,LTD.Singapore</li>
+                                    <li>Opportunity: AR Denial Management (Voice)</li>
+                                    <li>Work Location: Singapore</li>
+                                    <li>Work Experience: 6 months – 6 years</li>
+                                    <li>Salary: Best in the industry (Nego.)</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <!-- No More Button -->
+                                <div class="text-start mt-3">
+                                    <button class="btn btn-secondary new-btn" disabled style="pointer-events: none; opacity: 0.7; background-color: #007bff; border-color: #007bff; color: #fff;">Know More</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="col-md-4 col-sm-12"> 
+                    <div class="full-card">
+                    <div class="row">
+                        <div class="col-md-3">
+                        </div>
+                       <div class="col-md-12">
+                            <div class="job-info text-start">
+                                <h3><a href="#">Female Photographer</a></h3>
+                                <ul style="padding-left: 1.2em; margin-bottom: 0;">
+                                    <li>Urgent Requirement for Holmech Engineering PTE,LTD.Singapore</li>
+                                    <li>Opportunity: Pipe Fitter,TIG welder</li>
+                                    <li>Work Location: Singapore</li>
+                                    <li>Work Experience: 6 months – 6 years</li>
+                                    <li>Salary: Best in the industry (Nego.)</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <!-- No More Button -->
+                                <div class="text-start mt-3">
+                                    <button class="btn btn-secondary new-btn" disabled style="pointer-events: none; opacity: 0.7; background-color: #007bff; border-color: #007bff; color: #fff;">Know More</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="col-md-4 col-sm-12"> 
+                    <div class="full-card">
+                    <div class="row">
+                        <div class="col-md-3">
+                        </div>
+                        <div class="col-md-12">
+                            <div class="job-info text-start">
+                                <h3><a href="#">Fresh Carpenter-5 No's</a></h3>
+                                <ul style="padding-left: 1.2em; margin-bottom: 0;">
+                                    <li>Urgent Requirement for Holmech Engineering PTE,LTD.Singapore</li>
+                                    <li>Opportunity: MIG Welder (Aluminium)</li>
+                                    <li>Work Location: Singapore</li>
+                                    <li>Work Experience: 6 months – 6 years</li>
+                                    <li>Salary: Best in the industry (Nego.)</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <!-- No More Button -->
+                                <div class="text-start mt-3">
+                                    <button class="btn btn-secondary new-btn" disabled style="pointer-events: none; opacity: 0.7; background-color: #007bff; border-color: #007bff; color: #fff;">Know More</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="col-md-4 col-sm-12"> 
+                    <div class="full-card">
+                    <div class="row">
+                        <div class="col-md-3">
+                        </div>
+                        <div class="col-md-12">
+                            <div class="job-info text-start">
+                                <h3><a href="#">Sales Man</a></h3>
+                                <ul style="padding-left: 1.2em; margin-bottom: 0;">
+                                    <li>Urgent Requirement for Holmech Engineering PTE,LTD.Singapore</li>
+                                    <li>Opportunity: E-Pass Mobile Sales Man</li>
+                                    <li>Work Location: Singapore</li>
+                                    <li>Work Experience: 6 months – 6 years</li>
+                                    <li>Salary: Best in the industry (Nego.)</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <!-- No More Button -->
+                                <div class="text-start mt-3">
+                                    <button class="btn btn-secondary new-btn" disabled style="pointer-events: none; opacity: 0.7; background-color: #007bff; border-color: #007bff; color: #fff;">Know More</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="col-md-4 col-sm-12"> 
+                    <div class="full-card">
+                    <div class="row">
+                        <div class="col-md-3"> 
+                        </div>
+                        <div class="col-md-12">
+                            <div class="job-info text-start">
+                                <h3><a href="#">CNC Operator</a></h3>
+                                <ul style="padding-left: 1.2em; margin-bottom: 0;">
+                                    <li>Urgent Requirement for Holmech Engineering PTE,LTD.Singapore</li>
+                                    <li>Opportunity: CNC Worker</li>
+                                    <li>Work Location: Singapore</li>
+                                    <li>Work Experience: 6 months – 6 years</li>
+                                    <li>Salary: Best in the industry (Nego.)</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <!-- No More Button -->
+                                <div class="text-start mt-3">
+                                    <button class="btn btn-secondary new-btn" disabled style="pointer-events: none; opacity: 0.7; background-color: #007bff; border-color: #007bff; color: #fff;">Know More</button>
+                                </div>
+                            </div>
+                        </div>            
+                    </div>
+                </div>
+            </div>
+                <div class="col-md-4 col-sm-12"> 
+                    <div class="full-card">
+                    <div class="row">
+                        <div class="col-md-3">           
+                        </div>
+                        <div class="col-md-12">
+                            <div class="job-info text-start">
+                                <h3><a href="#">Store Keeper</a></h3>
+                                <ul style="padding-left: 1.2em; margin-bottom: 0;">
+                                    <li>Urgent Requirement for Holmech Engineering PTE,LTD.Singapore</li>
+                                    <li>Opportunity: Store Keeper</li>
+                                    <li>Work Location: Singapore</li>
+                                    <li>Work Experience: 6 months – 6 years</li>
+                                    <li>Salary: Best in the industry (Nego.)</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <!-- No More Button -->
+                                <div class="text-start mt-3">
+                                    <button class="btn btn-secondary new-btn" disabled style="pointer-events: none; opacity: 0.7; background-color: #007bff; border-color: #007bff; color: #fff;">Know More</button>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+</div>
+
+</main>
+  <footer>
+  <div class="container-fluid footer mt-5">
+    <div class="container">
+        <div class="row d-flex justify-content-between">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="all-footer">
+                <div class="footer-logo">
+                    <img src="/img/sr_logo.svg" alt="">
+                </div>
+                <div class="footer-text">
+                    <p>Lorem ipsum dolor sit amet,labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
+                </div>
+                <div class="footer-social">
+                    <ul>
+                        <li>
+                            <a href="#"><i class="fi fi-brands-facebook"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fi fi-brands-instagram"></i></a>
+                        </li>
+                        <!-- <li>
+                            <a href="#"><i class="fi fi-brands-pinterest"></i></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fi fi-brands-linkedin"></i></a>
+                        </li> -->
+                    </ul>
+                </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="footer-links">
+                 <h3 class="line">Quick Links</h3>
+                <ul>
+                    <li>
+                        <i class="fi fi-sc-angle-double-small-right shake"></i>
+                        Home
+                    </li>
+                    <li>
+                        <i class="fi fi-sc-angle-double-small-right shake"></i>
+                        About
+                    </li>
+                    
+                    <li>
+                        <i class="fi fi-sc-angle-double-small-right shake"></i>
+                        Latest Jobs
+                    </li>
+                    <li>
+                        <i class="fi fi-sc-angle-double-small-right shake"></i>
+                        Contact Us
+                    </li>
+                    <li>
+                        <i class="fi fi-sc-angle-double-small-right shake"></i>
+                        Privacy
+                    </li>
+                </ul>
+            </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="footer-info">
+                    <h3>Information</h3>
+                    <ul>
+                        <div class="last">
+                            <li class="d-flex align-items-center gap-2">
+                                <i class="fi fi-rr-phone-call"></i>
+                                <p>Phone:</p>
+                            </li>  
+                            <a href="#">9360271346 , 9786111346</a>
+                         </div>
+                        <div class="last">
+                            <li class="d-flex align-items-center gap-2">
+                                <i class="fi fi-ss-envelope"></i>
+                                <p>E-mail:</p>
+                            </li>
+                            <a href="mailto:srconduldant@gmail.com">srconduldant@gmail.com</a>
+                        </div>
+                        <div class="last">
+                            <li class="d-flex align-items-center gap-2">
+                                <i class="fi fi-ts-marker"></i>
+                                <p>Address:</p>
+                            </li>
+                           <a href="#">SR Consultant, <br>Shop No11, 
+No42, Najeem Avenue,
+Indira Gandhi Street,
+Wireless Road, 
+Airport Trichy-7.</a>                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- LAST-SECTION -->
+<div class="container-fluid last-section">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="last-text text-center">
+                <p>© SR consultancy Website  is Proudly Owned by <a href="#">Levlox</a></p>
+
+            </div>
+        </div>
+    </div>
+</div>
+</footer>
+             
+<div id="projectModal" class="project-modal" style="display:none; position:fixed; left:0; top:0; width:100vw; height:100vh; z-index:9999; background:rgba(0,0,0,0.85); overflow:auto;">
+    <div class="modal-content animate-up" style="max-width:1200px; margin:80px auto 40px auto; background:#181818; border-radius:18px; padding:32px 24px 24px 24px; position:relative; box-shadow:0 8px 32px rgba(0,0,0,0.4); width:95vw; transform: translateY(100vh); opacity:0; transition: transform 0.5s cubic-bezier(.4,1.6,.4,1), opacity 0.5s;">
+        <button type="button" class="close-modal" aria-label="Close" style="position:absolute; top:18px; right:18px; color: #fff; background:none; border:none; font-size:2rem; z-index:2;">&times;</button>
+        <div class="all-content">
+            <div class="mb-5 fade-in">
+                <h4 style="color: #ffffff;">Define it.<br>we'll design it</h4>
+            </div>
+            <style>
+            .fade-in {
+                opacity: 0;
+                animation: fadeIn 1s ease-in forwards;
+            }
+            @keyframes fadeIn {
+                to { opacity: 1; }
+            }
+            /* Modal slide up animation */
+            .project-modal .modal-content.show-up {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            </style>
+            <div class="checkbox fade-in"></div>
+            <p class="mb-4 fade-in " style="color: #ffffff;">Define Your Direction</p>
+            <input type="checkbox" class="btn-check no-shadow fade-in" name="services-Web-Design" id="service1" onclick="clickCheckBox(event)" autocomplete="off">
+            <label class="btn btn-secondary custom-checkbox fade-in mb-3" for="service1" style="background-color: #000;">Web Design</label>
+            <input type="checkbox" class="btn-check no-shadow fade-in" name="services-web-Development" id="service2" onclick="clickCheckBox(event)" autocomplete="off">
+            <label class="btn btn-secondary custom-checkbox fade-in mb-3" for="service2" style="background-color: #000;">Web Development</label>
+            <input type="checkbox" class="btn-check no-shadow fade-in" name="services-UI & UX Design" id="service3" onclick="clickCheckBox(event)" autocomplete="off">
+            <label class="btn btn-secondary custom-checkbox fade-in mb-3" for="service3" style="background-color: #000;">UI & UX Design</label>
+            <input type="checkbox" class="btn-check no-shadow fade-in" name="services-Mobile App" id="service4" onclick="clickCheckBox(event)" autocomplete="off">
+            <label class="btn btn-secondary custom-checkbox fade-in mb-3" for="service4" style="background-color: #000;">Mobile App</label>
+            <input type="checkbox" class="btn-check no-shadow fade-in" name="services-Saas Design" id="service5" onclick="clickCheckBox(event)" autocomplete="off">
+            <label class="btn btn-secondary custom-checkbox fade-in mb-3" for="service5" style="background-color: #000;">Saas Design</label>
+            <input type="checkbox" class="btn-check no-shadow fade-in" name="services-Brand Design" id="service6" onclick="clickCheckBox(event)" autocomplete="off">
+            <label class="btn btn-secondary custom-checkbox fade-in mb-3" for="service6" style="background-color: #000;">Brand Design</label>
+            <input type="checkbox" class="btn-check no-shadow fade-in" name="services-Graphics & Printing" id="service7" onclick="clickCheckBox(event)" autocomplete="off">
+            <label class="btn btn-secondary custom-checkbox fade-in mb-3" for="service7" style="background-color: #000;">Graphics & Printing</label>
+            
+            <div class="details">
+                <form id="contact-form" onsubmit="sendEmail(event)" novalidate>
+                   
+                    <div class="mb-3 d-flex flex-column flex-md-row gap-2 w-100 fade-in">
+                        <div class="flex-fill position-relative">
+
+
+                    <input type="text" class="name-section form-control border-0 border-bottom rounded-0 shadow-none fade-in" name="name" placeholder="Name*" required style="background:transparent; color:#fff; font-family: 'Neue Haas Grotesk Text Pro'; font-size: 14px; font-style: normal; font-weight: 400; line-height: 18px; width: 80%; margin-top:30px;">
+                    <div class="invalid-feedback fade-in">Please enter your name.</div>
+                    </div>
+                    <div class="name-section flex-fill position-relative" style="margin-left: 1rem;">
+                        <input type="email" class="form-control border-0 border-bottom rounded-0 shadow-none fade-in" name="email" placeholder="Email Id*" required style="background:transparent; color:#fff; font-family: 'Neue Haas Grotesk Text Pro'; font-size: 14px; font-style: normal; font-weight: 400; line-height: 18px; width: 80%; margin-top:30px;">
+                        <div class="invalid-feedback fade-in">Please enter a valid email.</div>
+                    </div>
+                    </div>
+                        <div class="mobile-section mb-3 d-flex flex-column flex-md-row gap-2 w-100 fade-in" style="margin-top: 3rem;">
+                            <div class="flex-fill position-relative">
+                                <input type="tel" class="form-control border-0 border-bottom rounded-0 shadow-none fade-in" name="mobile" placeholder="Mobile Number" required style="background:transparent; color:#fff; font-family: 'Neue Haas Grotesk Text Pro'; font-size: 14px; font-style: normal; font-weight: 400; line-height: 18px; border-bottom: 1px solid #4D4D4D; margin-top: 50px; width: 80%;">
+                                <div class="invalid-feedback fade-in">Please enter your phone number.</div>
+                            </div>
+                            <div class="hear-section flex-fill position-relative" style="margin-left: 1rem;">
+                                <input type="text" class="form-control border-0 border-bottom rounded-0 shadow-none fade-in" name="referral" placeholder="How did you hear about us?" required style="background:transparent; color:#fff; font-family: 'Neue Haas Grotesk Text Pro'; font-size: 14px; font-style: normal; font-weight: 400; line-height: 18px; margin-top: 50px; width: 80%;">
+                                <div class="invalid-feedback fade-in"></div>
+                            </div>
+                        </div>
+                    <div class="mb-3 flex-fill position-relative fade-in">
+                        <textarea class="control form-control border-0 border-bottom rounded-0 shadow-none fade-in" id="projectDetails" name="projectDetails" rows="0" placeholder="Short description" required style="background:transparent; color:#fff; font-family: 'Neue Haas Grotesk Text Pro'; font-size: 14px; font-style: normal; font-weight: 400; line-height: 6px; padding: 90px 12px 0px 12px; width: 90%;"></textarea>
+                        <hr class="m-0 position-absolute start-0 end-0 fade-in" style="bottom:2px; width: 90%;">
+                    </div>
+                    <div class="login">
+                    <a href="#" class="btn btn-primary log-one d-flex justify content-start">Submit</a>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+
+<div id="thankYouModal" style="display:none; position:fixed; left:0; top:0; width:100vw; height:100vh; z-index:10000; background:rgba(0,0,0,0.92); overflow:auto;">
+    <div style="max-width:500px; margin:120px auto 0 auto; background:#181818; border-radius:18px; padding:48px 32px 40px 32px; text-align:center; color:#fff; position:relative; box-shadow:0 8px 32px rgba(0,0,0,0.4);">
+        <button type="button" id="closeThankYou" aria-label="Close" style="position:absolute; top:18px; right:18px; background:none; border:none; font-size:2rem; color:#fff;">&times;</button>
+        <span style="display:inline-block; width:64px; height:64px; background:#fff; border-radius:50%; margin-bottom:24px;">
+            <svg width="64" height="64" viewBox="0 0 64 64" style="display:block; margin:auto;" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="32" r="32" fill="#fff"/>
+            <polyline points="18,34 28,44 46,24" fill="none" stroke="#28a745" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </span>
+        <h2 style="margin-bottom:16px;">Thank You!</h2>
+        <p style="font-size:1.1rem; margin-bottom:24px;">Your message has been sent successfully.<br>We appreciate your interest and will get back to you soon.</p>
+        <div id="thankYouCountdown" style="margin-top:18px; color:#aaa; font-size:1rem;"></div>
+    </div>
+</div>
+
+<script>
+    // Show Thank You Modal after successful email
+    function showThankYouModal() {
+        var modal = document.getElementById('thankYouModal');
+        if (modal) {
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            // Start countdown
+            var countdown = 2;
+            var countdownDiv = document.getElementById('thankYouCountdown');
+            if (countdownDiv) {
+                countdownDiv.textContent = "This will close in " + countdown + " seconds...";
+                var interval = setInterval(function() {
+                    countdown--;
+                    if (countdownDiv) {
+                        countdownDiv.textContent = "This will close in " + countdown + " seconds...";
+                    }
+                    if (countdown <= 0) {
+                        clearInterval(interval);
+                        closeThankYouAndGoHome();
+                    }
+                }, 1000);
+            }
+        }
+    }
+    function closeThankYouAndGoHome() {
+        var modal = document.getElementById('thankYouModal');
+        if (modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+            window.location.href = '/'; // Redirect to home page
+        }
+    }
+    // Close Thank You Modal
+    document.addEventListener('DOMContentLoaded', function() {
+        var closeBtn = document.getElementById('closeThankYou');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', function() {
+                closeThankYouAndGoHome();
+            });
+        }
+    });
+
+    // Patch sendEmail to only show thank you after successful send
+    (function() {
+        var origSendEmail = window.sendEmail;
+        window.sendEmail = function(event) {
+            event.preventDefault();
+            const form = document.getElementById('contact-form');
+            // Get values
+            const name = form.name.value.trim();
+            const email = form.email.value.trim();
+            const mobile = form.mobile.value.trim();
+            const referral = form.referral.value.trim();
+            const projectDetails = form.projectDetails.value.trim();
+
+            // Only require name, email, mobile
+            let valid = true;
+            if (!name) valid = false;
+            if (!email) valid = false;
+            if (!mobile) valid = false;
+
+            if (!valid) {
+                form.classList.add('was-validated');
+                return;
+            }
+
+            // If referral or projectDetails are empty, set default text
+            const safeReferral = referral || "Not provided";
+            const safeProjectDetails = projectDetails || "Not provided";
+
+            emailjs.send("service_04coyhr","template_yq4ta9k", {
+                to_name: "Recipient Name", 
+                to_email:'ffarajsabar',
+                name,
+                email,
+                mobile,
+                referral: safeReferral,
+                projectDetails: safeProjectDetails,
+                selectedServices: (typeof selectedServices !== 'undefined' ? selectedServices.join(',') : '')
+            })
+            .then(response => {
+                form.reset();
+                document.getElementById('projectModal').style.display = 'none';
+                showThankYouModal();
+            })
+            .catch(error => {
+                console.error("Failed to send email:", error);
+                alert("Failed to send the message. Please try again.");
+            });
+        };
+    })();
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Open modal with animation on "For Enquiry" button click
+    var forEnquiryBtn = document.querySelector('.btn.btn-primary.log');
+    if (forEnquiryBtn) {
+        forEnquiryBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            var modal = document.getElementById('projectModal');
+            if (modal) {
+                modal.style.display = 'block';
+                var content = modal.querySelector('.modal-content');
+                // Remove and re-add show-up for animation
+                content.classList.remove('show-up');
+                void content.offsetWidth;
+                content.classList.add('show-up');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    }
+    // Close modal
+    function closeModal() {
+        var modal = document.getElementById('projectModal');
+        if (modal) {
+            var content = modal.querySelector('.modal-content');
+            content.classList.remove('show-up');
+            setTimeout(function() {
+                modal.style.display = 'none';
+                document.body.style.overflow = '';
+            }, 400);
+        }
+    }
+    // Close button
+    var closeBtn = document.querySelector('#projectModal .close-modal');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
+    // Close on outside click
+    var modal = document.getElementById('projectModal');
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+    }
+    // Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeModal();
+    });
+    // Form validation
+    var form = document.getElementById('contact-form');
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            if (!form.checkValidity()) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            form.classList.add('was-validated');
+        }, false);
+    }
+});
+</script>
+    
+
+     <script src="/js/jquery.js"></script>
+    <script src="/project.js"></script>
+    <script src="/js/g-sap.js"></script>
+    <script src="/js/loader.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/owl.carousel.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
