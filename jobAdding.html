@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add Job Description</title>
+    <script src="https://unpkg.com/@supabase/supabase-js"></script>
+  </head>
+  <body>
+    <h1>Add Job Description</h1>
+
+    <form id="jobForm">
+      <label>Job Title: <input type="text" name="job_title" required /></label
+      ><br />
+      <label>Location: <input type="text" name="location" required /></label
+      ><br />
+      <label
+        >Work Experience:
+        <input type="text" name="experience" required /></label
+      ><br />
+      <label
+        >Apply Before: <input type="text" name="apply_before" required /></label
+      ><br />
+      <label
+        >Description: <textarea name="description" required></textarea></label
+      ><br />
+      <label
+        >Requirements: <textarea name="requirements" required></textarea></label
+      ><br />
+      <label
+        >Company Name: <input type="text" name="company_name" required /></label
+      ><br />
+      <label>Job Type: <input type="text" name="job_type" required /></label
+      ><br />
+      <label>Email: <input type="email" name="email" required /></label><br />
+      <label>Language: <input type="text" name="language" required /></label
+      ><br />
+      <label>Salary: <input type="text" name="salary" required /></label><br />
+      <label>Website: <input type="text" name="website" required /></label
+      ><br />
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <script>
+      const supabaseUrl = "https://jztubbnfqlquwdgcldmr.supabase.co";
+      const supabaseKey =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp6dHViYm5mcWxxdXdkZ2NsZG1yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI1NzkxNTYsImV4cCI6MjA2ODE1NTE1Nn0.cCQopTnVxIsvgEFgeBzm8_Ef5M_5Jr5MMfPadK80WrY";
+
+      const supabaseModal = supabase.createClient(supabaseUrl, supabaseKey);
+
+      const form = document.getElementById("jobForm");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        const allFields = Object.fromEntries(formData.entries());
+
+        const name = allFields.job_title;
+        delete allFields.name;
+
+        const job_description = allFields;
+
+        const { error } = await supabaseModal
+          .from("Job_description")
+          .insert([{ name, job_description }]);
+
+        if (error) {
+          console.error("Insert error:", error);
+          alert("Failed to submit");
+        } else {
+          alert("Job successfully added!");
+          this.reset();
+        }
+      });
+    </script>
+  </body>
+</html>

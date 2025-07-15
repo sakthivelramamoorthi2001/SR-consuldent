@@ -24,23 +24,17 @@
 </head>
 
 <script>    
-function clickCheckBox(e) {
-    const { name, checked } = e.target;
 
-    if (checked) {
-        if (!selectedServices.includes(name)) {
-            selectedServices.push(name);
-        }
-    } else {
-        selectedServices = selectedServices.filter(item => item !== name);
-    }
+   let Job_description_Arr = {
+    error:"",
+    data:[],
+    loading:true
+   }; 
 
-    console.log("Selected services:", selectedServices);
-}
+   let selectedUser = null
 
     function sendEmail(event) {
         event.preventDefault();
-        console.log("test");
         
         const form = document.getElementById('contact-form');
         const name = form.name.value;
@@ -120,7 +114,7 @@ function clickCheckBox(e) {
 </div>
 </header>
     <!-- BACKGROUND IMAGE -->
-<main>
+<main >
     <div class="container-fluid section-two mb-5">
         <div class="container">
             <div class="row text">
@@ -150,164 +144,8 @@ function clickCheckBox(e) {
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices.</p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-4 col-sm-6"> 
-                    <div class="full-card">
-                    <div class="row">
-                        <div class="col-md-3">
-                        </div>
-                        <div class="col-md-12">
-                            <div class="job-info text-start">
-
-                                <h3><a href="#">Medical Billing</a></h3>
-                                <ul style="padding-left: 1.2em; margin-bottom: 0;">
-                                    <li>Urgent Requirement for Holmech Engineering PTE,LTD.Singapore</li>
-                                    <li>Opportunity: AR Denial Management</li>
-                                    <li>Work Location: Singapore</li>
-                                    <li>Work Experience: 6 months – 6 years</li>
-                                    <li>Salary: Best in the industry (Nego.)</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <!-- No More Button -->
-                                <div class="text-start mt-3">
-                                    <a href="/joblist.html"><button class="btn btn-secondary new-btn" disabled style="pointer-events: none; opacity: 0.7; background-color: #007bff; border-color: #007bff; color: #fff;">Know More</button></a>
-                                </div>
-                            </div>
-                        </div>                      
-                    </div>
-                </div>
-            </div>
-                <div class="col-md-4 col-sm-6"> 
-                    <div class="full-card">
-                    <div class="row">
-                        <div class="col-md-3">                       
-                        </div>
-                       <div class="col-md-12">
-                            <div class="job-info text-start">
-                                <h3><a href="#">Female Photographer</a></h3>
-                                <ul style="padding-left: 1.2em; margin-bottom: 0;">
-                                    <li>Urgent Requirement for Holmech Engineering PTE,LTD.Singapore</li>
-                                    <li>Opportunity: Pipe Fitter,TIG welder</li>
-                                    <li>Work Location: Singapore</li>
-                                    <li>Work Experience: 6 months – 6 years</li>
-                                    <li>Salary: Best in the industry (Nego.)</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <!-- No More Button -->
-                                <div class="text-start mt-3">
-                                    <a href="/joblist.html"><button class="btn btn-secondary new-btn" disabled style="pointer-events: none; opacity: 0.7; background-color: #007bff; border-color: #007bff; color: #fff;">Know More</button></a>
-                                </div>
-                            </div>
-                      </div>                     
-                    </div>
-                </div>
-            </div>
-                <div class="col-md-4 col-sm-6"> 
-                    <div class="full-card">
-                    <div class="row">
-                        <div class="col-md-3">                        
-                        </div>
-                        <div class="col-md-12">
-                            <div class="job-info text-start">
-                                <h3><a href="#">Fresh Carpenter-5 No's</a></h3>
-                                <ul style="padding-left: 1.2em; margin-bottom: 0;">
-                                    <li>Urgent Requirement for Holmech Engineering PTE,LTD.Singapore</li>
-                                    <li>Opportunity: MIG Welder (Aluminium)</li>
-                                    <li>Work Location: Singapore</li>
-                                    <li>Work Experience: 6 months – 6 years</li>
-                                    <li>Salary: Best in the industry (Nego.)</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <!-- No More Button -->
-                                <div class="text-start mt-3">
-                                    <a href="/joblist.html"><button class="btn btn-secondary new-btn" disabled style="pointer-events: none; opacity: 0.7; background-color: #007bff; border-color: #007bff; color: #fff;">Know More</button></a>
-                                </div>
-                            </div>
-                        </div>                      
-                    </div>
-                </div>
-            </div>
-                <div class="col-md-4 col-sm-6"> 
-                    <div class="full-card">
-                    <div class="row">
-                        <div class="col-md-3">                        
-                        </div>
-                        <div class="col-md-12">
-                            <div class="job-info text-start">
-                                <h3><a href="#">Sales Man</a></h3>
-                                <ul style="padding-left: 1.2em; margin-bottom: 0;">
-                                    <li>Urgent Requirement for Holmech Engineering PTE,LTD.Singapore</li>
-                                    <li>Opportunity: E-Pass Mobile Sales Man</li>
-                                    <li>Work Location: Singapore</li>
-                                    <li>Work Experience: 6 months – 6 years</li>
-                                    <li>Salary: Best in the industry (Nego.)</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <!-- No More Button -->
-                                <div class="text-start mt-3">
-                                    <a href="/joblist.html"><button class="btn btn-secondary new-btn" disabled style="pointer-events: none; opacity: 0.7; background-color: #007bff; border-color: #007bff; color: #fff;">Know More</button></a>
-                                </div>
-                            </div>
-                        </div>                      
-                    </div>
-                </div>
-            </div>
-                <div class="col-md-4 col-sm-6"> 
-                    <div class="full-card">
-                    <div class="row">
-                        <div class="col-md-3">                       
-                        </div>
-                        <div class="col-md-12">
-                            <div class="job-info text-start">
-                                <h3><a href="#">CNC Operator</a></h3>
-                                <ul style="padding-left: 1.2em; margin-bottom: 0;">
-                                    <li>Urgent Requirement for Holmech Engineering PTE,LTD.Singapore</li>
-                                    <li>Opportunity: CNC Worker</li>
-                                    <li>Work Location: Singapore</li>
-                                    <li>Work Experience: 6 months – 6 years</li>
-                                    <li>Salary: Best in the industry (Nego.)</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <!-- No More Button -->
-                                <div class="text-start mt-3">
-                                    <a href="/joblist.html"><button class="btn btn-secondary new-btn" disabled style="pointer-events: none; opacity: 0.7; background-color: #007bff; border-color: #007bff; color: #fff;">Know More</button></a>
-                                </div>
-                            </div>
-                        </div>                      
-                    </div>
-                </div>
-            </div>
-                <div class="col-md-4 col-sm-6"> 
-                    <div class="full-card">
-                    <div class="row">
-                        <div class="col-md-3">                       
-                          </div>
-                        <div class="col-md-12">
-                            <div class="job-info text-start">
-                                <h3><a href="#">Store Keeper</a></h3>
-                                <ul style="padding-left: 1.2em; margin-bottom: 0;">
-                                    <li>Urgent Requirement for Holmech Engineering PTE,LTD.Singapore</li>
-                                    <li>Opportunity: Store Keeper</li>
-                                    <li>Work Location: Singapore</li>
-                                    <li>Work Experience: 6 months – 6 years</li>
-                                    <li>Salary: Best in the industry (Nego.)</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <!-- No More Button -->
-                                <div class="text-start mt-3">
-                                    <a href="/joblist.html"><button class="btn btn-secondary new-btn" disabled style="pointer-events: none; opacity: 0.7; background-color: #007bff; border-color: #007bff; color: #fff;">Know More</button></a>
-                                </div>
-                            </div>
-                        </div>                     
-                    </div>
-                </div>
-            </div>             
+            <div class="row" id="jobContainer">
+                      
             </div>
         </div>
     </div>
@@ -547,7 +385,7 @@ function clickCheckBox(e) {
  </main>
 
  <!-- FOOTER -->
-  <footer>
+  <footer >
   <div class="container-fluid footer mt-5">
     <div class="container">
         <div class="row d-flex justify-content-between">
@@ -739,6 +577,8 @@ function clickCheckBox(e) {
                     </div>
 
                     
+  <script src="https://unpkg.com/@supabase/supabase-js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script src="/js/jquery.js"></script>
     <script src="/project.js"></script>
@@ -748,15 +588,83 @@ function clickCheckBox(e) {
     <script src="/js/owl.carousel.min.js"></script>
     <script src="/js/bootstrap.bundle.min.js"></script>
 
-
 <script>
 
     (function () {
-        console.log(emailjs,'emailjs');
-        
-  // Initialize EmailJS
-  emailjs.init("xz1Qjsvsdn8hTfyKF"); // Replace with your EmailJS User ID
+  emailjs.init("xz1Qjsvsdn8hTfyKF");
 })();
+
+
+
+ (function () {
+   const supabaseUrl = 'https://jztubbnfqlquwdgcldmr.supabase.co';
+    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp6dHViYm5mcWxxdXdkZ2NsZG1yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI1NzkxNTYsImV4cCI6MjA2ODE1NTE1Nn0.cCQopTnVxIsvgEFgeBzm8_Ef5M_5Jr5MMfPadK80WrY";
+
+    const supabases = supabase.createClient(supabaseUrl, supabaseKey);
+
+    async function fetchData() {
+          
+      const { data, error } = await supabases.from('Job_description').select('*');
+      if (error) {
+        console.error('Error:', error);
+        Job_description_Arr = {
+            data:[],
+            error:'While fetching Job getting error',
+            loading:false
+        };
+      } else {
+        console.log('Data:', data);
+      Job_description_Arr = {
+            data:data,
+            error:"",
+            loading:false
+        };
+              const container = document.getElementById('jobContainer');
+
+
+          Job_description_Arr.data.forEach((job) => {
+        const details = job.job_description;        
+        const card = document.createElement('div');
+        card.className = 'col-md-4 col-sm-6 mb-4';
+        card.innerHTML = `
+          <div class="full-card">
+            <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-12">
+                <div class="job-info text-start">
+                  <h3><a href="#">${details?.job_title}</a></h3>
+                  <ul style="padding-left: 1.2em; margin-bottom: 0;">
+                    <li>${details.company_name   ? 'Urgent Requirement for ' + details.company_name : ''}</li>
+                    <li>Opportunity: ${details.description || 'N/A'}</li>
+                    <li>Work Location: ${details.location || 'N/A'}</li>
+                    <li>Work Experience: ${details.experience || 'N/A'}</li>
+                    <li>Salary: ${details.salary || 'N/A'}</li>
+                  </ul>
+                </div>
+                <div class="text-start mt-3">
+                  <a href="/joblist.html" onclick=>
+                    <button class="btn btn-secondary new-btn" disabled style="pointer-events: none; opacity: 0.7; background-color: #007bff; border-color: #007bff; color: #fff;">Know More</button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+      }
+    }
+
+    fetchData();
+})();
+
+const btn = card.querySelector('.know-more-btn');
+  btn.onclick = (e) => {
+    e.preventDefault(); 
+    showJobDetails(job); 
+  };
+
+
     // Show Thank You Modal after successful email
     function showThankYouModal() {
         var modal = document.getElementById('thankYouModal');
